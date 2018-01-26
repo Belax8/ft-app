@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-lg-2">
+      <nav class="navbar navbar-default navbar-fixed-side">
+        <!-- normal collapsible navbar markup -->
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <div class="main-ft-logo-container" >
+            <img src="/assets/images/Angular_full_color_logo.png" style="max-width: 100px;"/> <strong>Fitness Tracker</strong>
+          </div>
+          <a class="navbar-brand"><span class="glyphicon glyphicon-user"></span>&nbsp; <strong>{{user.firstName}} {{user.lastName.substring(0,1)}}.</strong></a>
+          <a class="navbar-brand navigation__link" (click)="onLogout()" style="float: right;">Logout</a>
+          </div> <!-- End .navbar-header -->
+          <div class="collapse navbar-collapse myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="navigation__link" (click)="onNavSelect('/profile')" [class.is-active]="selectedRoute == '/profile'" >
+                <a ><strong><span class="glyphicon glyphicon-wrench"></span>&emsp; Profile</strong></a>
+              </li>
+            </ul>
+          </div><!-- End .collapse .navbar-collapse .myNavbar -->
+        </div><!-- End .container-fluid -->
+      </nav>
+    </div>
+    <div class="col-sm-9 col-lg-10" style="margin: 0; padding: 0;">
+      <h1 class="main-header">{{selectedRoute.slice(1).replace('-',' ') | titleCase}}</h1>
+      <div class="nav-secondary-wrapper" *ngIf="subHeaders.length > 0">
+        <h2 class="nav-secondary" 
+            *ngFor="let subHeader of subHeaders" 
+            (click)="onSelectTab(subHeader.name)"
+            [class.nav-secondary-selected]="subHeader.name === activeSubHeader">{{subHeader.name  | titleCase}}</h2>
+      </div>
+      <div class="container">
+
+        <router-outlet></router-outlet>
+
+        <div style="clear: both;"></div>
+        
+        <ft-footer-layout></ft-footer-layout>
+        
+      </div>
+    </div>
+  </div>
+</div>

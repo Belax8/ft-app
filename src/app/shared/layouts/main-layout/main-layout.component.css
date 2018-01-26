@@ -1,0 +1,49 @@
+
+/* Side Nav */
+.navbar-default {
+  background-color: white;
+}
+  .main-ft-logo-container {
+      margin: 0;
+  }
+  .is-active {
+      background-color: rgba(0, 145, 206, 0.3);
+  }
+  .navbar-nav > li > a {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+      .navbar-nav > li > a:hover {
+          background-color: rgba(0, 145, 206, 0.3);
+      }
+  .navigation__link:hover {
+      cursor: pointer;
+  }
+
+/* Top Header */
+.main-header {
+  background-color: #0091ce;
+  color: white;
+  margin: 0;
+  padding: 15px 15px 15px 40px;
+}
+
+.nav-secondary-wrapper {
+  background-color: rgba(0, 145, 206, 0.8);
+  color: white;
+  margin: 0;
+  padding: 0 10px 0 30px;
+}
+  .nav-secondary {
+      font-size: 20px;
+      display: inline-block;
+      padding: 10px 10px 10px 10px;
+      margin: 0;
+  }
+      .nav-secondary:hover {
+          background-color: rgba(0, 145, 206, 1);
+          cursor: pointer;
+      }
+      .nav-secondary-selected {
+          background-color: rgba(0, 145, 206, 1);
+      }
