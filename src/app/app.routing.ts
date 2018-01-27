@@ -10,7 +10,9 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     //canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'profile', pathMatch: 'full' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' },
+      { path: 'exercise', loadChildren: 'app/exercise/exercise.module#ExerciseModule' },
       { path: 'profile', loadChildren: 'app/profile/profile.module#ProfileModule' }
     ]
   },

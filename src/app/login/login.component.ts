@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../shared';
 
 @Component({
   selector: 'ft-login',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  username: string = '';
+  password: string = '';
+  errorMessage: string = null;
+
+  constructor(private authSvc: AuthService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    let self = this;
+    let user = {
+      username: this.username,
+      password: this.password
+    };
+    this.authSvc.login(user).subscribe(
+      (result) => {
+        this.router.navigateByUrl('/dashboard');
+      }, (error) => {
+        this.errorMessage = 'Error logging in!!';
+      }
+    );
   }
 
 }

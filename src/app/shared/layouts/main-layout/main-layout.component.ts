@@ -17,7 +17,7 @@ export class MainLayoutComponent implements OnInit {
   subHeaders: any[] = [];
   activeSubHeader: string;
 
-  user: any = {firstName: 'Chris', lastName: 'Johnson'};
+  user: User = new User();
 
   constructor(private authSvc: AuthService, private router: Router, private coreApiSvc: CoreApiService) { }
 

@@ -18,6 +18,12 @@
           </div> <!-- End .navbar-header -->
           <div class="collapse navbar-collapse myNavbar">
             <ul class="nav navbar-nav navbar-right">
+              <li class="navigation__link" (click)="onNavSelect('/dashboard')" [class.is-active]="selectedRoute == '/dashboard'" >
+                <a ><strong><span class="glyphicon glyphicon-dashboard"></span>&emsp; Dashboard</strong></a>
+              </li>
+              <li class="navigation__link" (click)="onNavSelect('/exercise')" [class.is-active]="selectedRoute == '/exercise'" >
+                <a ><strong><span class="glyphicon glyphicon-scale"></span>&emsp; Exercise</strong></a>
+              </li>
               <li class="navigation__link" (click)="onNavSelect('/profile')" [class.is-active]="selectedRoute == '/profile'" >
                 <a ><strong><span class="glyphicon glyphicon-wrench"></span>&emsp; Profile</strong></a>
               </li>

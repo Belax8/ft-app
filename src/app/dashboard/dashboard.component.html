@@ -1,0 +1,14 @@
+
+<h3>Goal</h3>
+<div *ngIf="userFitnessPlan">
+  {{userFitnessPlan.goalWeight}}
+</div>
+
+
+<h3>Recent Exercises</h3>
+<div class="list-group">
+  <div *ngFor="let exercise of userExercises" class="list-group-item">
+    <h4 class="list-group-item-heading">{{exercise.exerciseType.name}}</h4>
+    <p class="list-group-item-text">{{exercise.startTime}} - Score:{{exercise.score}} - Duration:{{exercise.duration}}</p>
+  </div>
+</div>

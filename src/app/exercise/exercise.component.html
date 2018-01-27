@@ -1,0 +1,22 @@
+
+<h3>Current Exercises</h3>
+<div class="list-group">
+  <div *ngFor="let exercise of incompleteExercises" class="list-group-item">
+    <h4 class="list-group-item-heading">{{exercise.exerciseType.name}}</h4>
+    <p class="list-group-item-text">{{exercise.startTime}} <button class="btn btn-danger btn-sm">End</button></p>
+  </div>
+</div>
+
+
+<button class="btn btn-primary">Add Exercise</button>
+
+<button class="btn btn-primary">Start Exercise</button>
+
+
+<h3>Past Exercises</h3>
+<div class="list-group">
+  <div *ngFor="let exercise of completedExercises" class="list-group-item">
+    <h4 class="list-group-item-heading">{{exercise.exerciseType.name}}</h4>
+    <p class="list-group-item-text">{{exercise.startTime}} - Score:{{exercise.score}} - Duration:{{exercise.duration}}</p>
+  </div>
+</div>

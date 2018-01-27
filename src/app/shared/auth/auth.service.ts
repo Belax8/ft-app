@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { Headers, Http, Response } from '@angular/http';
-// import * as jsSHA from 'jssha';
 import 'jssha';
 
 import { environment } from '../../../environments/environment';
@@ -14,8 +13,8 @@ export class AuthService {
 
   authToken: string = null;
   userId: number = null;
-  secretKey: string = '';
-  apiKey: string = '';
+  secretKey: string = 'fd4f4b5d-4ef4-4866-8';
+  apiKey: string = 'b44493b5-4';
 
   isProduction: boolean = environment.production;
 
@@ -95,8 +94,8 @@ export class AuthService {
                 let result = response.json();
                 this.authToken = result.token;
                 this.userId = result.userId.toString();
-                window.sessionStorage.setItem('CAPUserToken', result.token);
-                window.sessionStorage.setItem('CAPUserId', result.userId.toString());
+                window.sessionStorage.setItem('FTUserToken', result.token);
+                window.sessionStorage.setItem('FTUserId', result.userId.toString());
             }
             return response.json();
         });
@@ -105,8 +104,8 @@ export class AuthService {
   logout() {
     this.authToken = null;
     this.userId = null;
-    window.sessionStorage.removeItem('CAPUserToken');
-    window.sessionStorage.removeItem('CAPUserId');
+    window.sessionStorage.removeItem('FTUserToken');
+    window.sessionStorage.removeItem('FTUserId');
   }
 
   isAuthenticated() {
