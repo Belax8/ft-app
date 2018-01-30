@@ -8,8 +8,8 @@
     <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password"/>
 </div>
 
-<button class="btn btn-cap" (click)="onSubmit()">Login</button>
-<button class="btn btn-default" routerLink="/auth/forgot">Forgot?</button>
+<button class="btn btn-success" (click)="onSubmit()">Login</button>
+<!-- <button class="btn btn-default" routerLink="/auth/forgot">Forgot?</button> -->
 
 <div style="padding-top: 15px;">
     <div *ngIf="errorMessage" class="alert alert-danger" role="alert" >{{errorMessage}}</div>

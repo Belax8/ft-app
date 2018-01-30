@@ -1,0 +1,40 @@
+<ft-modal [options]="modalOptions" (hidden)="onHidden()" style="white-space: normal;">
+  <h2 ft-modal-header>Exercise</h2>
+  <div ft-modal-body>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="form-group">
+          <select class="form-control" [(ngModel)]="exercise.exerciseTypeId">
+            <option *ngFor="let type of exerciseTypes" [ngValue]="type.id">{{type.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="startTime">Start Time</label>
+          <input type="datetime-local" class="form-control" [(ngModel)]="exercise.startTime">
+        </div>
+        <div class="form-group">
+          <label for="endTime">End Time</label>
+          <input type="datetime-local" class="form-control" [(ngModel)]="exercise.endTime">
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments</label>
+          <input type="text" class="form-control" [(ngModel)]="exercise.comments">
+        </div>
+        <div class="form-group">
+          <label for="Score">Score</label>
+          <p class="help-block">{{exercise.score}}</p>
+        </div>
+        <div class="form-group">
+          <label for="Duration">Duration</label>
+          <p class="help-block">{{exercise.duration}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div ft-modal-footer>
+    <button class="btn btn-primary" (click)="onSave()">Save</button>
+    <button class="btn btn-default" (click)="onClose()">Close</button>
+  </div>
+</ft-modal>

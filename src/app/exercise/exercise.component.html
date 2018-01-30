@@ -1,22 +1,30 @@
 
+<div class="spacer"></div>
+
+<button class="btn btn-primary" (click)="showStartModal = true;">Start Exercise</button>
+<button class="btn btn-primary" (click)="manualEditModal()">Manually Add Exercise</button>
+
 <h3>Current Exercises</h3>
 <div class="list-group">
-  <div *ngFor="let exercise of incompleteExercises" class="list-group-item">
+  <div *ngFor="let exercise of incompleteExercises | orderBy:['-startTime']" class="list-group-item">
+    <button (click)="endExercise(exercise.id)" class="btn btn-danger btn-sm pull-right">End</button>
     <h4 class="list-group-item-heading">{{exercise.exerciseType.name}}</h4>
-    <p class="list-group-item-text">{{exercise.startTime}} <button class="btn btn-danger btn-sm">End</button></p>
+    <div class="list-group-item-text">
+      <p>{{exercise.startTime}}</p>
+    </div>
   </div>
 </div>
-
-
-<button class="btn btn-primary">Add Exercise</button>
-
-<button class="btn btn-primary">Start Exercise</button>
-
 
 <h3>Past Exercises</h3>
 <div class="list-group">
-  <div *ngFor="let exercise of completedExercises" class="list-group-item">
+  <div *ngFor="let exercise of completedExercises | orderBy:['-startTime']" class="list-group-item">
+    <button (click)="openModal(exercise.id)" class="btn btn-default btn-sm pull-right">Edit</button>
     <h4 class="list-group-item-heading">{{exercise.exerciseType.name}}</h4>
-    <p class="list-group-item-text">{{exercise.startTime}} - Score:{{exercise.score}} - Duration:{{exercise.duration}}</p>
+    <div class="list-group-item-text">
+      <p>{{exercise.startTime}} - Score:{{exercise.score}} - Duration:{{exercise.duration}}</p>
+    </div>
   </div>
 </div>
+
+<ft-exercise-modal *ngIf="showEditModal" [exercise]="selectedExercise" (hidden)="onModalClose()"></ft-exercise-modal>
+<ft-start-exercise-modal *ngIf="showStartModal" (hidden)="onModalClose()"></ft-start-exercise-modal>

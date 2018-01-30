@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared';
 import { exerciseRoutingComponents, ExerciseRoutingModule } from './exercise.routing';
+import { ExerciseModalComponent } from './exercise-modal';
+import { StartExerciseModalComponent } from './start-exercise-modal';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { exerciseRoutingComponents, ExerciseRoutingModule } from './exercise.rou
     SharedModule
   ],
   declarations: [
-    exerciseRoutingComponents
+    exerciseRoutingComponents,
+    ExerciseModalComponent,
+    StartExerciseModalComponent
   ],
   exports: [
   ]

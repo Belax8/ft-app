@@ -1,6 +1,45 @@
 
 <h3>Account Settings</h3>
-<div *ngIf="userFitnessPlan">
-  {{userFitnessPlan.goalWeight}}
+
+<h4>Current Weight</h4>
+<div *ngIf="user">
+  <div *ngIf="!editUser">
+    <p>{{user.weight}}</p>
+    <button (click)="editUser = true;" class="btn btn-warning btn-sm">Update</button>
+  </div>
+  <div *ngIf="editUser">
+    <div class="form-group">
+      <label for="weight">Weight:</label>
+      <input class="form-control" type="number" step='0.01' [(ngModel)]="user.weight" />
+    </div>
+    <button (click)="saveNewWeight()" class="btn btn-success btn-sm">Save</button>
+    <button (click)="editUser = false;" class="btn btn-danger btn-sm">Cancel</button>
+  </div>
 </div>
-  
+
+<h4>Goals</h4>
+
+<div *ngIf="userFitnessPlan">
+  <div *ngIf="!editGoals">
+    <p><label>Goal Weight:</label> {{userFitnessPlan.goalWeight}}</p>
+    <p><label>Pounds Per Week:</label> {{userFitnessPlan.fitnessPlanType.poundsPerWeek}}</p>
+    <button (click)="editGoals = true;" class="btn btn-warning btn-sm">Edit Goals</button>
+  </div>
+  <div *ngIf="editGoals">
+    <div class="form-group">
+      <label for="goalWeight">Goal Weight:</label>
+      <input class="form-control" type="number" step='0.01' [(ngModel)]="userFitnessPlan.goalWeight" />
+    </div>
+    <div class="form-group">
+      <select class="form-control" [(ngModel)]="userFitnessPlan.fitnessPlanTypeId">
+        <option *ngFor="let type of fitnessPlanTypes" [ngValue]="type.id">{{type.name + ' (' + type.poundsPerWeek + ' lbs/week)'}}</option>
+      </select>
+    </div>
+    <button (click)="updateGoals()" class="btn btn-success btn-sm">Update</button>
+    <button (click)="editGoals = false;" class="btn btn-danger btn-sm">Cancel</button>
+  </div>
+</div>
+
+<div *ngIf="getCalculations() && !editUser && !editGoals">
+  <p class="help-block">{{getCalculations()}}</p>
+</div>

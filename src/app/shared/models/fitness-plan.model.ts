@@ -2,7 +2,9 @@
 export class FitnessPlan {
   id: number;
   userId: number;
-  goal_weight: number;
+  goalWeight: number;
+  fitnessPlanTypeId?: number;
+  fitnessPlanType?: any;
   created: string;
   updated: string;
 }

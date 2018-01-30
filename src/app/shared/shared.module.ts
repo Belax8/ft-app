@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { FooterLayoutComponent, LoginLayoutComponent, MainLayoutComponent } from './layouts';
 import { TitleCasePipe, CommaStylePipe, OrderByPipe } from './pipes';
+import { ModalComponent } from './modal';
 import { AuthGuard, AuthService } from './auth';
 import { CoreApiService } from './core-api';
 
@@ -20,7 +21,8 @@ import { CoreApiService } from './core-api';
     OrderByPipe,
     MainLayoutComponent,
     LoginLayoutComponent,
-    FooterLayoutComponent
+    FooterLayoutComponent,
+    ModalComponent
   ],
   exports: [
     TitleCasePipe,
@@ -28,7 +30,8 @@ import { CoreApiService } from './core-api';
     OrderByPipe,
     MainLayoutComponent,
     LoginLayoutComponent,
-    FooterLayoutComponent
+    FooterLayoutComponent,
+    ModalComponent
   ]
 })
 export class SharedModule {

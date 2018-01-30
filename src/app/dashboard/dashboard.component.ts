@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getFitnessPlan() {
-    this.coreApiSvc.get(`/users/${this.userId}/fitnessPlans`).subscribe((result) => {
+    this.coreApiSvc.get(`/users/${this.userId}/fitnessPlans?include=fitnessPlanType`).subscribe((result) => {
       if (result.length > 0) {
         this.userFitnessPlan = result[0];
       } else {

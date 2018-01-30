@@ -1,0 +1,15 @@
+
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="pull-right" (click)="modal.hide()"><span class="pointer" style="font-size: 35px; margin-right: 15px;" aria-hidden="true">&times;</span></span>
+      <ng-content select="ft-modal-header, [ft-modal-header]"></ng-content>
+    </div>
+    <div class="modal-body">
+      <ng-content select="ft-modal-body, [ft-modal-body]"></ng-content>
+    </div>
+    <div class="modal-footer">
+      <ng-content select="ft-modal-footer, [ft-modal-footer]"></ng-content>
+    </div>
+  </div>
+</div>
