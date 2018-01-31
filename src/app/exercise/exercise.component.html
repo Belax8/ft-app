@@ -17,6 +17,9 @@
 
 <h3>Past Exercises</h3>
 <div class="list-group">
+  <div *ngIf="completedExercises.length == 0">
+    <p class="help-block">It looks like you don't have any exercises. Click 'Start Exercise' to start one right now.</p>
+  </div>
   <div *ngFor="let exercise of completedExercises | orderBy:['-startTime']" class="list-group-item">
     <button (click)="openModal(exercise.id)" class="btn btn-default btn-sm pull-right">Edit</button>
     <h4 class="list-group-item-heading">{{exercise.exerciseType.name}}</h4>

@@ -3,10 +3,16 @@
 <div *ngIf="userFitnessPlan">
   <p>{{userFitnessPlan.goalWeight}} ({{userFitnessPlan.fitnessPlanType.poundsPerWeek}} lbs/week)</p>
 </div>
+<div *ngIf="!userFitnessPlan">
+  <p class="help-block">It looks like you don't have a Fitness Goal. Click 'Profile' in your menu, then set your information so we can help you acheive your goal.</p>
+</div>
 
 
 <h3>Recent Exercises</h3>
 <div class="list-group">
+  <div *ngIf="userExercises.length == 0">
+    <p class="help-block">It looks like you don't have any exercises. Click 'Exercise' in your menu, then click 'Start Exercise' to start one right now.</p>
+  </div>
   <div *ngFor="let exercise of userExercises" class="list-group-item">
     <h4 class="list-group-item-heading">{{exercise.exerciseType.name}}</h4>
     <p class="list-group-item-text">{{exercise.startTime}} - Score:{{exercise.score}} - Duration:{{exercise.duration}}</p>

@@ -1,6 +1,6 @@
 
 export class FitnessPlan {
-  id: number;
+  id: number = 0;
   userId: number;
   goalWeight: number;
   fitnessPlanTypeId?: number;

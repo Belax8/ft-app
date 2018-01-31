@@ -10,8 +10,8 @@ import { AuthService, CoreApiService, Exercise, FitnessPlan, FitnessPlanType, Us
 export class ProfileComponent implements OnInit {
 
   userId: number;
-  user: User;
-  userFitnessPlan: FitnessPlan = null;
+  user: User = new User();
+  userFitnessPlan: FitnessPlan = new FitnessPlan();
   fitnessPlanTypes: FitnessPlanType[] = [];
 
   editUser: boolean = false;
@@ -29,17 +29,25 @@ export class ProfileComponent implements OnInit {
   getUserInfo(): void {
     this.coreApiSvc.get(`/users/${this.userId}`).subscribe((result) => {
       this.user = result;
+      if (this.user.weight == null) {
+        this.editUser = true;
+      }
     });
   }
 
   getFitnessPlan(): void {
-    this.coreApiSvc.get(`/users/${this.userId}/fitnessPlans?include=fitnessPlanType`).subscribe((result) => {
-      if (result.length > 0) {
-        this.userFitnessPlan = result[0];
-      } else {
-        this.userFitnessPlan = null;
+    this.coreApiSvc.get(`/users/${this.userId}/fitnessPlans?include=fitnessPlanType`).subscribe(
+      (result) => {
+        if (result.length > 0) {
+          this.userFitnessPlan = result[0];
+        } else {
+          this.editGoals = true;
+        }
+      },
+      (error) => {
+        this.editGoals = true;
       }
-    });
+    );
   }
 
   getFitnessPlanTypes(): void {
@@ -56,11 +64,26 @@ export class ProfileComponent implements OnInit {
   }
 
   updateGoals() {
-    let body = {fitnessPlanTypeId: this.userFitnessPlan.fitnessPlanTypeId};
-    this.coreApiSvc.put(`/fitnessPlans/${this.userFitnessPlan.id}`, body).subscribe((result) => {
-      this.editGoals = false;
-      this.getFitnessPlan();
-    });
+    if (this.userFitnessPlan.id == 0) {
+      let body = {
+        userId: this.userId,
+        fitnessPlanTypeId: this.userFitnessPlan.fitnessPlanTypeId,
+        goalWeight: this.userFitnessPlan.goalWeight
+      };
+      this.coreApiSvc.post(`/fitnessPlans`, body).subscribe((result) => {
+        this.editGoals = false;
+        this.getFitnessPlan();
+      });
+    } else {
+      let body = {
+        fitnessPlanTypeId: this.userFitnessPlan.fitnessPlanTypeId,
+        goalWeight: this.userFitnessPlan.goalWeight
+      };
+      this.coreApiSvc.put(`/fitnessPlans/${this.userFitnessPlan.id}`, body).subscribe((result) => {
+        this.editGoals = false;
+        this.getFitnessPlan();
+      });
+    }
   }
 
   getCalculations(): string {
