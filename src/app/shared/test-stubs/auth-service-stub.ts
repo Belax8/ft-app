@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs/Rx';
 
 export const AuthServiceStub = {
+    userId: 10,
     formatPayload: () => {
         return {};
     },

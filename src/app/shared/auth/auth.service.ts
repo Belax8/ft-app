@@ -64,7 +64,7 @@ export class AuthService {
 
   getAuthHeaders(url: string, payload?: Object) {
       var headers = new Headers();
-      if (typeof payload !== "undefined") {
+      if (typeof payload !== 'undefined') {
           payload = this.formatPayload(payload);
       }
       var timestamp = Date.now();

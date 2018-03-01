@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthService, CoreApiService, Exercise, FitnessPlan, FitnessPlanType, User } from '../shared';
+import { AuthService, CoreApiService, FitnessPlan, FitnessPlanType, User } from '../shared';
 
 @Component({
   selector: 'ft-profile',
@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   getUserInfo(): void {
     this.coreApiSvc.get(`/users/${this.userId}`).subscribe((result) => {
       this.user = result;
-      if (this.user.weight == null) {
+      if (this.user.weight === null) {
         this.editUser = true;
       }
     });
@@ -64,7 +64,7 @@ export class ProfileComponent implements OnInit {
   }
 
   updateGoals() {
-    if (this.userFitnessPlan.id == 0) {
+    if (this.userFitnessPlan.id === 0) {
       let body = {
         userId: this.userId,
         fitnessPlanTypeId: this.userFitnessPlan.fitnessPlanTypeId,
@@ -96,7 +96,7 @@ export class ProfileComponent implements OnInit {
       if (currentWeight <= goalWeight) {
         return 'You have acheived your goal!!';
       } else {
-        while(goalWeight < currentWeight) {
+        while (goalWeight < currentWeight) {
           amountOfWeeks += 1;
           currentWeight -= poundsPerWeek;
         }

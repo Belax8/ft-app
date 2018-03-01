@@ -75,8 +75,8 @@ it('formatPayload should alphabetize items in dictionary',
       let payload = {
         orange: 1,
         blue: {
-          red: "a  f  g",
-          pink: "b  t  g"
+          red: 'a  f  g',
+          pink: 'b  t  g'
         }
       };
       // Act
@@ -115,8 +115,8 @@ it('formatPayload should alphabetize items in dictionary',
       let payload = {
         orange: 1,
         blue: {
-          red: "a  f  g",
-          pink: "b  t  g"
+          red: 'a  f  g',
+          pink: 'b  t  g'
         }
       };
       let formattedPayload = JSON.stringify(service.formatPayload(payload));
@@ -151,41 +151,41 @@ it('formatPayload should alphabetize items in dictionary',
 
   it('getAuthHeaders returns authorization header',
     inject([AuthService], (service: AuthService) => {
-      //Arange
+      // Arange
       let url = '/someUrlolz';
-      //Act
+      // Act
       let auth = service.getAuthHeaders(url);
-      //Assert
+      // Assert
       expect(auth.get('Authorization')).toBeDefined();
     }));
 
   it('getAuthHeaders returns x-ft-api-key header',
     inject([AuthService], (service: AuthService) => {
-      //Arange
+      // Arange
       let url = '/someUrlolz';
-      //Act
+      // Act
       let auth = service.getAuthHeaders(url);
-      //Assert
+      // Assert
       expect(auth.get('x-ft-api-key')).toBeDefined();
     }));
 
   it('getAuthHeaders returns x-ft-api-nonce header',
     inject([AuthService], (service: AuthService) => {
-      //Arange
+      // Arange
       let url = '/someUrlolz';
-      //Act
+      // Act
       let auth = service.getAuthHeaders(url);
-      //Assert
+      // Assert
       expect(auth.get('x-ft-api-nonce')).toBeDefined();
     }));
 
   it('getAuthHeaders returns x-ft-timestamp header',
     inject([AuthService], (service: AuthService) => {
-      //Arange
+      // Arange
       let url = '/someUrlolz';
-      //Act
+      // Act
       let auth = service.getAuthHeaders(url);
-      //Assert
+      // Assert
       expect(auth.get('x-ft-timestamp')).toBeDefined();
     }));
 
