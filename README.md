@@ -1,7 +1,7 @@
 # Fitness Tracker App
 
-[![Circle CI Badge](https://circleci.com/gh/Belax8/ft-app/tree/master.svg?style=shield&circle-token=c945917bdcc07bbbd71c4e4312480cb3afc25494)](https://circleci.com)
-[![Node Security Platform](https://nodesecurity.io/orgs/belax8/projects/4b22cb12-c272-4b43-9ffd-4bcc572eb5fa/badge)](https://nodesecurity.io)
+[![Circle CI Badge](https://circleci.com/gh/Belax8/ft-app/tree/master.svg?style=shield&circle-token=c945917bdcc07bbbd71c4e4312480cb3afc25494)](https://circleci.com/gh/Belax8/ft-app)
+[![Node Security Platform](https://nodesecurity.io/orgs/belax8/projects/4b22cb12-c272-4b43-9ffd-4bcc572eb5fa/badge)](https://nodesecurity.io/orgs/belax8/projects/4b22cb12-c272-4b43-9ffd-4bcc572eb5fa)
 
 This project was built to show how javascript could interact with an API that uses [Django Rest Framework Signature](https://github.com/Skylude/django-rest-framework-signature) and [Django Rest Framework Simplify](https://github.com/Skylude/django-rest-framework-simplify). Check out [FT-API](https://github.com/Belax8/ft-api) to see how the API is working.
 
